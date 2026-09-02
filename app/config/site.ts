@@ -9,7 +9,7 @@ const DiscordIcon = () => h(BrandIcons, { name: "discord" })
 export const GITHUB_USERNAME = "Doume-20"
 export const SUBDOMAIN = "20"
 export const DOMAIN = "doume.be"
-export const MAIL = `20@${DOMAIN}`
+export const EMAIL = `20@${DOMAIN}`
 
 export interface NavSection {
   path: string
