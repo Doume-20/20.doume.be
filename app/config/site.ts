@@ -7,6 +7,9 @@ const GithubIcon = () => h(BrandIcons, { name: "github" })
 const DiscordIcon = () => h(BrandIcons, { name: "discord" })
 
 export const GITHUB_USERNAME = "Doume-20"
+export const SUBDOMAIN = "20"
+export const DOMAIN = "doume.be"
+export const MAIL = `20@${DOMAIN}`
 
 export interface NavSection {
   path: string
@@ -29,17 +32,17 @@ export interface SocialLink {
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: "GitHub",
-    href: `https://github.com/${GITHUB_USERNAME}`,
+    href: `https://github.com/${GITHUB_USERNAME}/${SUBDOMAIN}.${DOMAIN}`,
     icon: GithubIcon,
   },
   {
     label: "Email",
-    href: "mailto:20@doume.be",
+    href: `mailto:${EMAIL}`,
     icon: Mail,
   },
   {
     label: "Site",
-    href: "https://doume.be",
+    href: `https://${SUBDOMAIN}.${DOMAIN}`,
     icon: Globe,
   },
   {

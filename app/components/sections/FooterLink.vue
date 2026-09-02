@@ -33,7 +33,7 @@ const rim = computed(() => (hovered.value ? 3.5 : 1))
       :intensity="0.3"
       :height="100"
       :spread="8"
-      :radius="48"
+      :radius="20"
       :speed="0.25"
       :scale="0.75"
       :turbulence="0"
@@ -55,8 +55,8 @@ const rim = computed(() => (hovered.value ? 3.5 : 1))
         class="flex items-center gap-2 rounded-md border px-3 py-1.5 text-xs transition-colors"
         :class="
           hovered
-            ? 'border-orange-400/30 bg-white/[0.06] text-white'
-            : 'border-white/10 bg-white/[0.03] text-white/60'
+            ? 'border-orange-400/30 bg-white/6 text-white'
+            : 'border-white/10 bg-white/3 text-white/60'
         "
       >
         <component :is="link.icon" class="size-3.5" />
