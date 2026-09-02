@@ -6,6 +6,7 @@ import { h } from "vue"
 const GithubIcon = () => h(BrandIcons, { name: "github" })
 const DiscordIcon = () => h(BrandIcons, { name: "discord" })
 
+export const DISCORD_ID = "784483333149163540"
 export const GITHUB_USERNAME = "Doume-20"
 export const SUBDOMAIN = "20"
 export const DOMAIN = "doume.be"
@@ -47,7 +48,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: "Discord",
-    href: "https://discord.com/users/784483333149163540",
+    href: `https://discord.com/users/${DISCORD_ID}`,
     icon: DiscordIcon,
   }
 ]
