@@ -80,10 +80,12 @@ export const FEATURED_REPOS: string[] = [
   `${GITHUB_USERNAME}/RIDF`,
 ] 
 /* 
-    !   Not recommended to have it empty nor to have more than 3 repos, 
-    !   for good layout, 3 is max, 
-    !   but if you just want to have more, 6 is the max, 
-    !   because the layout break and it isn't possible to scroll the page
+    !   Il n'est pas recommandé d'avoir cet array vide ou d'avoir plus de 3 repos non plus
+    !   pour un meilleur layout, 3 est le max
+    !   mais si vous voulez en avoir plus, 6 est vraiment le max (visible) 
+    !   parce que la page ne permet pas ce scroller, ce qui bloque la possibilité de voir plus de repos
 
-    *   Je me pose parfois ce question, que tu/vous devez aussi vous poser, pourquoi il y a des commentaires en anglais alors que le texte est en français, ne vous inquiêtez pas, je ne sais pas non plus, mais maintenant j'ai la flemme de modifier le commentaire xD    
+    TODO: Régler le problème
+
+    *   Je me pose parfois ce question, que tu/vous dois/devez aussi vous poser, pourquoi il y a des commentaires en anglais alors que le texte est en français, ne vous inquiêtez pas, je ne sais pas non plus, mais maintenant j'ai la flemme de modifier le commentaire xD    
 */
