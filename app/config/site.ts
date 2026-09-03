@@ -61,7 +61,7 @@ export const BIOGRAPHY: Biography = [
   [
     "Étudiant au lycée Louis Bascan à Rambouillet, j'aime m'amuser avec du reverse engineering, de la programmation, de la cybersécurité, de l'électronique, de la 3D et la liste est encore longue... ",
     "Pour le DOX que je me fais à moi même, c'est parce que je pars du principe que dans le monde où l'on est, nous n'avons plus aucune vie privée, donc mieux vaut partager ses infos soi-même, plutôt que d'attendre qu'une certaine institution (hum hum l'état français) se fasse hacker et que mes infos soient vendues sur le net.",
-    "Ce site a entièrement été fait par moi, à part à certains moment où j'ai demandé à l'IA de m'aider (comme pour un problème de couleurs, alors que j'avais juste activé une extension qui me permettait d'avoir un dark mode sur des sites qui ne le possèdent pas (oui je suis bête)).",
+    "Ce site a entièrement été fait par moi, à part à certains moment où j'ai demandé à l'IA de m'aider (comme pour un problème de couleurs, alors que j'avais juste activé une extension qui changeait certaines couleurs sur tous les sites que je visitais (oui je suis bête)).",
   ],
   [
     "Je suis un étudiant ayant fait ses années de collège dans la cambrousse, puis étant allé dans un lycée à 1h de route de chez moi afin d'aller en STI2D (où je vais aller cette année, je serais en 1STI2D2 (oui c'est long)). Je dois aller à l'internat de mon lycée, qui devient de plus en plus stricts au fil de l'année (alors que les nouvelles règles sont débiles, mais bon, c'est la vie)...",
@@ -76,7 +76,8 @@ export const BIOGRAPHY: Biography = [
 ]
 
 export const FEATURED_REPOS: string[] = [
-  `${GITHUB_USERNAME}/doume.be`,
+  `${GITHUB_USERNAME}/${SUBDOMAIN}.${DOMAIN}`,
+  `${GITHUB_USERNAME}/${DOMAIN}`,
   `${GITHUB_USERNAME}/RIDF`,
 ] 
 /* 
@@ -86,6 +87,4 @@ export const FEATURED_REPOS: string[] = [
     !   parce que la page ne permet pas ce scroller, ce qui bloque la possibilité de voir plus de repos
 
     TODO: Régler le problème
-
-    *   Je me pose parfois ce question, que tu/vous dois/devez aussi vous poser, pourquoi il y a des commentaires en anglais alors que le texte est en français, ne vous inquiêtez pas, je ne sais pas non plus, mais maintenant j'ai la flemme de modifier le commentaire xD    
 */

@@ -10,7 +10,7 @@ const route = useRoute()
 <template>
   <nav
     aria-label="Navigation principale"
-    class="fixed left-0 top-0 h-screen z-50 flex flex-col justify-center gap-2 border-r border-white/10 bg-black/60 backdrop-blur-md px-3 overflow-hidden transition-[width] duration-200 ease-out"
+    class="fixed left-0 top-0 z-50 flex flex-col justify-center gap-2 border-r border-white/10 bg-black/60 backdrop-blur-md px-3 overflow-hidden transition-[width] duration-200 ease-out"
     :class="open ? 'w-50' : 'w-14'"
     @mouseenter="open = true"
     @mouseleave="open = false"

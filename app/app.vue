@@ -5,7 +5,7 @@ import AppFooter from "@/components/sections/AppFooter.vue"
 
 <template>
   <div class="bg-black min-h-screen">
-    <AppSidebar />
+    <AppSidebar class="h-[calc(100vh-57px)]"/>
     <NuxtPage class="h-[calc(100vh-57px)]"/>
     <AppFooter />
   </div>

@@ -9,10 +9,6 @@ defineProps<{
 
 const hovered = ref(false)
 
-// Toujours visible et monté une seule fois ; seule l'intensité change au
-// survol (au lieu de monter/démonter le composant, ou de le basculer en
-// opacity: 0, qui cassaient tous les deux le rendu de cette API encore
-// experimentale).
 const intensity = computed(() => (hovered.value ? 0.9 : 0.12))
 const sparks = computed(() => (hovered.value ? 2 : 0.3))
 const ember = computed(() => (hovered.value ? 3 : 0.5))
