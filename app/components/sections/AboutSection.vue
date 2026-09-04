@@ -87,12 +87,13 @@ onUnmounted(() => observer?.disconnect())
     <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-4 mix-blend-difference">
       
       <div v-if="sections.length === 3 || sections.length === 2">
-        <button v-if="activeIndex === 0" @click="previous" class="mt-4 text-white/60 hover:text-white" aria-label="Previous section">⤒</button>
+        <button 
+          v-if="activeIndex === 0" @click="previous" class="mt-4 text-white/60 hover:text-white" aria-label="Previous section" :disabled="activeIndex === 0" :class="activeIndex === 0 ? 'text-white/20 cursor-not-allowed' : 'text-white/60 hover:text-white'">⤒</button>
         <button v-if="activeIndex === 1" @click="previous" class="mt-4 text-white/60 hover:text-white" aria-label="Previous section">⤉</button>
         <button v-if="activeIndex === 2 && sections.length === 3" @click="previous" class="mt-4 text-white/60 hover:text-white" aria-label="Previous section">↥</button>
       </div>
       <div v-else>
-        <button @click="previous" class="mt-4 text-white/60 hover:text-white" aria-label="Previous section">↑</button>
+        <button @click="previous" class="mt-4 text-white/60 hover:text-white" aria-label="Previous section" :disabled="activeIndex === 0" :class="activeIndex === 0 ? 'text-white/20 cursor-not-allowed' : 'text-white/60 hover:text-white'">↑</button>
       </div>
 
       <button
@@ -106,11 +107,11 @@ onUnmounted(() => observer?.disconnect())
 
       <div v-if="sections.length === 3 || sections.length === 2">
         <button v-if="activeIndex === 0" @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section">↧</button>
-        <button v-if="activeIndex === 1" @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section">⤈</button>
-        <button v-if="activeIndex === 2 && sections.length === 3" @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section">⤓</button>
+        <button v-if="activeIndex === 1" @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section" :disabled="sections.length === (activeIndex +1)" :class="sections.length === (activeIndex +1) ? 'text-white/20 cursor-not-allowed' : 'text-white/60 hover:text-white'">⤈</button>
+        <button v-if="activeIndex === 2 && sections.length === 3" @click="next" class="mt-4 hover:text-white text-white/20 cursor-not-allowed" aria-label="Next section" :disabled="true">⤓</button>
       </div>
       <div v-else>
-        <button @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section">↓</button>
+        <button @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section" :disabled="sections.length === (activeIndex +1)" :class="sections.length === (activeIndex +1) ? 'text-white/20 cursor-not-allowed' : 'text-white/60 hover:text-white'">↓</button>
       </div>
 
     </nav>
