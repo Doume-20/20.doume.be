@@ -64,7 +64,7 @@ export const BIOGRAPHY: Biography = [
     "Ce site a entièrement été fait par moi, à part à certains moment où j'ai demandé à l'IA de m'aider (comme pour un problème de couleurs, alors que j'avais juste activé une extension qui changeait certaines couleurs sur tous les sites que je visitais (oui je suis bête)).",
   ],
   [
-    "Je suis un étudiant ayant fait ses années de collège dans la cambrousse, puis étant allé dans un lycée à 1h de route de chez moi afin d'aller en STI2D (où je vais aller cette année, je serais en 1STI2D2 (oui c'est long)). Je dois aller à l'internat de mon lycée, qui devient de plus en plus stricts au fil de l'année (alors que les nouvelles règles sont débiles, mais bon, c'est la vie)...",
+    "Je suis un étudiant ayant fait ses années de collège dans la cambrousse, puis étant allé dans un lycée à 1h de route de chez moi afin d'aller en STI2D (je suis en 1STI2D2 (oui c'est long) actuellement). Je dois aller à l'internat de mon lycée, qui devient de plus en plus stricts au fil de l'année (alors que les nouvelles règles sont débiles, mais bon, c'est la vie)...",
     "J'ai commencé à m'intéresser à l'informatique très tôt, mais j'ai vraiment commencé à coder à mon Noël de 6ème, soit il y a 4 ans et demi, et bientôt 5 :) dans quelques mois. J'avais commencé sur un ordinateur unowhy de 2020, qui était équipé avec 64Go de stockage et 4Go de RAM, soit une petite fortune dans cette économie.",
   ],
   [
