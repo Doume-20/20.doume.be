@@ -65,18 +65,8 @@ onUnmounted(() => observer?.disconnect())
       />
 
       <div class="absolute inset-0 z-20 flex items-center text-white mix-blend-difference justify-center px-6 md:px-16 pointer-events-none">
-        <div v-if="i === 0" class="max-w-5xl mx-auto">
-          <p v-for="(paragraph, j) in BIOGRAPHY[0]" :key="j" class="mb-4">
-            {{ paragraph }}
-          </p>
-        </div>
-        <div v-else-if="i === 1" class="max-w-5xl mx-auto w-full">
-          <p v-for="(paragraph, j) in BIOGRAPHY[1]" :key="j" class="mb-4">
-            {{ paragraph }}
-          </p>
-        </div>
-        <div v-else-if="i === 2" class="max-w-5xl mx-auto w-full">
-          <p v-for="(paragraph, j) in BIOGRAPHY[2]" :key="j" class="mb-4">
+        <div class="max-w-5xl mx-auto w-full">
+          <p v-for="(paragraph, j) in BIOGRAPHY[i]" :key="j" class="mb-4">
             {{ paragraph }}
           </p>
         </div>
