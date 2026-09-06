@@ -69,7 +69,7 @@ export const BIOGRAPHY: Biography = [
   ],
   [
     "Cet ordinateur Unowhy a commencé à m'intriguer en fin de 3ème, début de 2nde, quand j'ai appris que j'allais en avoir un en passant au lycée (merci l'État). Sauf qu'en le récupérant, j'ai vite compris qu'il était bridé, et je me suis mis à chercher comment le débrider (merci STY, tes tutos sont parfaits).",
-    "C'est là que j'ai aussi réalisé que cet ordinateur avait autant de performances que mon prof de SES en 2nde avait de cheveux, c'est-à-dire aucune. J'ai donc commencé à débrider des ordinateurs pour des amis, ce qui m'a valu une petite réputation dans mon lycée (j'en ai un peu marre d'être le technicien de la classe, mais bon, ceux qui savent, savent).",
+    "C'est là que j'ai aussi réalisé que cet ordinateur avait autant de performances que mon prof de SES en 2nde avait de cheveux, c'est-à-dire aucune. J'ai donc commencé à débrider des ordinateurs pour des amis, ce qui m'a valu une petite réputation dans mon lycée (j'en ai un peu marre d'être le technicien de la classe, mais bon...).",
     "Je faisais ça gratuitement. Au milieu de ma 2nde, je me suis aussi penché sur les batteries Unowhy mises à disposition par le lycée : super pratiques sur le papier, mais super chiantes à cause d'un dock merdique qui se connecte en 4G dans une salle qui n'en capte pas (merci Unowhy — ou plutôt LLWPower, vu qu'Unowhy n'est qu'un revendeur qui se fait de l'argent grâce à la RIDF, laquelle le laissait vendre à l'État des ordinateurs de marque Emdoor à 600€ pièce, alors qu'ils venaient tout droit de Chine).",
     "Je pense que ça fait déjà pas mal pour l'instant. Au pire, j'ajouterai du texte ou des sections plus tard.",
   ],
