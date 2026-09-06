@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import HeroSection from "@/components/sections/HeroSection.vue"
 
-definePageMeta({
-  title: 'Doume\'s portfolio',
-  meta: [
-    { name: 'description', content: '\'jour' },
-    { property: 'og:title', content: '\'jour' }
-  ]
+useSeoMeta({
+  title: "Accueil",
+  description: "Doume20 — étudiant, passionné de reverse engineering, cybersécurité, programmation et électronique.",
+  ogTitle: "Doume20",
+  ogDescription: "Étudiant / Juste un gars",
 })
 </script>
 
