@@ -8,7 +8,7 @@ const DiscordIcon = () => h(BrandIcons, { name: "discord" })
 
 export const DISCORD_ID = "784483333149163540"
 export const GITHUB_USERNAME = "Doume-20"
-export const SUBDOMAIN = "20"
+export const SUBDOMAIN = "www"
 export const DOMAIN = "doume.be"
 export const EMAIL = `20@${DOMAIN}`
 

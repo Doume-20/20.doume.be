@@ -32,6 +32,13 @@ onMounted(() => {
   sectionRefs.value.forEach((el) => observer!.observe(el))
 })
 onUnmounted(() => observer?.disconnect())
+
+useSeoMeta({
+  title: "À propos",
+  description: "mon À propos",
+  ogTitle: "À propos",
+  ogDescription: "'jour",
+})
 </script>
 
 <template>

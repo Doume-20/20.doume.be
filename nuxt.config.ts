@@ -7,6 +7,15 @@ export default defineNuxtConfig({
   css: ['@/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  app: {
+    head: {
+      htmlAttrs: { lang: 'fr' },
+      titleTemplate: `$s · Doume20`,
+      meta: [
+        { name: 'description', content: 'Site personnel de Doume20 — étudiant, dev, cybersécurité, 3D, électronique.' }
+      ]
+    }
+  },
 })
 
