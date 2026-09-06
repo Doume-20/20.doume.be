@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'fr' },
       titleTemplate: `$s · Doume20`,
       meta: [
-        { name: 'description', content: 'Site personnel de Doume20 — étudiant, dev, cybersécurité, 3D, électronique.' }
+        { name: 'description', content: '\'jour' }
       ]
     }
   },
