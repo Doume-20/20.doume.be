@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'fr' },
-      titleTemplate: `$s · Doume20`,
+      titleTemplate: `%s · Doume20`,
       meta: [
         { name: 'description', content: '\'jour' }
       ]
