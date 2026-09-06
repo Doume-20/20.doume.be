@@ -1,0 +1,8 @@
+# security.txt
+# Generated using Security.txt Generator
+
+Contact: mailto:20@doume.be
+Expires: 2027-08-11T13:35
+Hiring: https://jobs.doume.be
+Preferred-Languages: fr, en
+Canonical: https://www.doume.be/security.txt
