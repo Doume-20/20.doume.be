@@ -2,6 +2,7 @@ import type { Component } from "vue"
 import { Home, User, Mail, Globe } from "@lucide/vue"
 import BrandIcons from "@/components/icons/BrandIcons.vue"
 
+
 import { h } from "vue"
 const GithubIcon = () => h(BrandIcons, { name: "github" })
 const DiscordIcon = () => h(BrandIcons, { name: "discord" })
@@ -53,7 +54,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   }
 ]
 
-export type Items = { image?: string; hl?: string }
+export type Items = { icon?: string | Component; nom?: string; hl?: string }
 export type SkillGroup = { titre?: string; items: Items[] }
 
 export type BiographyEntry =
@@ -70,37 +71,37 @@ export const BIOGRAPHY: Biography = [
     texte: ["'jour, je suis un élève de première au lycée Louis Bascan.", "J'ai pas d'idées d'autres trucs à rajouter, donc pour l'instant, ce sera vide", ],
   },
   {
-    type: "skills-vertical",
-    texte: [
-      { titre: "IDE", items: [
-        { image: "VSCode", hl: "Utilisé actuellement" }, 
-        { image: "Neovim", hl: "Utilisé avec NV Chad" }, 
-        { image: "Pycharm", hl: "Utilisé pendant 30j seulement" }
-      ]},
-      { titre: "Langages", items: [
-        { image: "Python", hl: "Premier langage de programmation appris" },
-        { image: "Cpp", hl: "Pour programmer des arduinos" },
-        { image: "Vue", hl: "Le langage utilisé pour ce site" },
-        { image: "JS", hl: "Aussi utilisé pour ce site" },
-      ]},
-      { titre: "Frameworks", items: [
-        { image: "Nuxt", hl: "Utilisé pour faire ce site" },
-        { image: "Tailwind CSS", hl: "Aussi utilisé pour ce site" },
-      ]},
-      { titre: "Versionning", items: [
-        { image: "Git", hl: "Afin d'avoir un moyen de changer de version facilement" },
-        { image: "Github", hl: "Site utilisé pour host tout mon code et autre" },
-      ]},
-      { titre: "Systèmes", items: [
-        { image: "Arch", hl: "I use Arch btw" },
-        { image: "Windows", hl: "MicroSlop ?" },
-        { image: "Android", hl: "Utilisé avant" },
-        { image: "e/OS", hl: "A été flashé sur mon tel en août, donc récent" },
-        { image: "Ubuntu", hl: "Trash (mon opinion)" },
-        { image: "Kali", hl: "Trop d'outils dessus, mais bien en daily" },
-      ]},
-    ],
-  },
+  type: "skills-vertical",
+  texte: [
+    { titre: "IDE", items: [
+      { icon: "logos:visual-studio-code", nom: "VSCode", hl: "Utilisé actuellement" },
+      { icon: "logos:neovim", nom: "Neovim", hl: "Utilisé avec NV Chad" },
+      { icon: "logos:pycharm", nom: "Pycharm", hl: "Utilisé pendant 30j seulement" },
+    ]},
+    { titre: "Langages", items: [
+      { icon: "logos:python", nom: "Python", hl: "Premier langage de programmation appris" },
+      { icon: "logos:c-plusplus", nom: "C++", hl: "Pour programmer des arduinos" },
+      { icon: "logos:vue", nom: "Vue", hl: "Le langage utilisé pour ce site" },
+      { icon: "logos:javascript", nom: "JS", hl: "Aussi utilisé pour ce site" },
+    ]},
+    { titre: "Frameworks", items: [
+      { icon: "logos:nuxt-icon", nom: "Nuxt", hl: "Utilisé pour faire ce site" },
+      { icon: "logos:tailwindcss-icon", nom: "Tailwind CSS", hl: "Aussi utilisé pour ce site" },
+    ]},
+    { titre: "Versionning", items: [
+      { icon: "logos:git-icon", nom: "Git", hl: "Afin d'avoir un moyen de changer de version facilement" },
+      { icon: "simple-icons:github", nom: "Github", hl: "Site utilisé pour host tout mon code et autre" },
+    ]},
+    { titre: "Systèmes", items: [
+      { icon: "logos:archlinux", nom: "Arch", hl: "I use Arch btw" },
+      { icon: "logos:microsoft-windows-icon", nom: "Windows", hl: "MicroSlop ?" },
+      { icon: "logos:android-icon", nom: "Android", hl: "Utilisé avant" },
+      { icon: "local:eos", nom: "e/OS", hl: "A été flashé sur mon tel en août, donc récent" },
+      { icon: "logos:ubuntu", nom: "Ubuntu", hl: "Trash (mon opinion)" },
+      { icon: "simple-icons:kalilinux", nom: "Kali", hl: "Trop d'outils dessus, mais bien en daily" },
+    ]},
+  ],
+},
   {
     type: "devices",
     texte: [
@@ -108,7 +109,7 @@ export const BIOGRAPHY: Biography = [
       { nom: "FairPhone Gen. 6", description: "Mon téléphone principal, dont je suis fier (FairPhone est très bien je trouve, en tout cas, pour mon usage)" },
       { nom: "Unowhy Gen2 2025", description: "Ordinateur donné par la RIDF lors de mon année de seconde (2025)" },
       { nom: "Asus Chromebook", description: "Ordinateur des secondes de 2026, qui est complètement bloqué de partout" },
-      { nom: "", description: "" },
+      { nom: "Packard Bell Nav50", description: "Petit ordi sous win7, eu pour 5€ à une brocante xD" },
     ],
   },
 ]
