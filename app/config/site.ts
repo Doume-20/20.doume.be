@@ -117,6 +117,5 @@ export const BIOGRAPHY: Biography = [
 
 export const FEATURED_REPOS: string[] = [
   `${GITHUB_USERNAME}/${SUBDOMAIN}.${DOMAIN}`,
-  `${GITHUB_USERNAME}/${DOMAIN}`,
   `${GITHUB_ORG}/ykw.doume.be`,
 ] 

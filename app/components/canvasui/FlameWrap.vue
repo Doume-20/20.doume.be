@@ -6,6 +6,12 @@ export interface FlameWrapOptions {
   intensity?: number;
   /** Reach of the flames above the top edge in CSS pixels. */
   height?: number;
+  /** Fraction of `height` the flames actually reach (0 to 1). Animate this rather than `height` to avoid resizing the canvas. */
+  grow?: number;
+  /** Speed multiplier for how fast the flames rise (on top of `speed`). Safe to change live. */
+  rise?: number;
+  /** Random offset so several instances don't burn identically. */
+  seed?: number;
   /** Reach of the glow on the sides and bottom in CSS pixels. */
   spread?: number;
   /** Corner radius of the burning outline in CSS pixels. Match your content. */
@@ -64,6 +70,9 @@ const DEFAULTS: Required<FlameWrapOptions> = {
   color: [0.31, 0.54, 1],
   intensity: 0.5,
   height: 170,
+  grow: 1,
+  rise: 1,
+  seed: 0,
   spread: 8,
   radius: 40,
   speed: 0.25,
@@ -124,6 +133,9 @@ uniform float uSparkSize;
 uniform float uSparkDensity;
 uniform float uSparkSpeed;
 uniform float uRim;
+uniform float uGrow;
+uniform float uRiseTime;
+uniform float uSeed;
 uniform float uMelt;
 uniform float uDistortion;
 uniform float uSmoke;
@@ -218,17 +230,18 @@ void main () {
   float unit = max(uHeight, 24.0);
   float corner = min(uCorner, min(uRectHalf.x, uRectHalf.y));
   float spreadPx = max(uSpread, 8.0);
-  float t = uTime;
+  float t = uTime + uSeed * 37.0;
   float detail = clamp(uScale, 0.05, 1.0);
 
   float d0 = sdRoundRect(rel, uRectHalf, corner);
-  float px = rel.x / unit;
+  float px = rel.x / unit + uSeed * 17.31;
   float py = rel.y / unit;
 
   float yA = max(rel.y - uRectHalf.y, 0.0) / unit;
   float sway = snoise(vec2(px * 1.1, t * 0.5)) * 0.55
     + snoise(vec2(px * 2.4, t * 0.9 + 41.0)) * 0.25;
-  float sx = px + yA * sway;
+  float xN = rel.x / max(uRectHalf.x, 1.0) * 0.25 + uSeed * 17.31;
+  float sx = xN + yA * sway;
   float env = fbm2(vec2(sx * 1.6 * detail + 3.7, t * 0.55 - yA * 0.4));
   float env2 = fbm2(vec2(sx * 3.6 * detail, t * 0.85 + 17.0 - yA * 0.6));
   float tongue = clamp(
@@ -256,12 +269,12 @@ void main () {
 
   float reach = mix(
     spreadPx * 0.9,
-    unit * (0.2 + 0.45 * tongue),
+    unit * (0.2 + 0.45 * tongue) * uGrow,
     wTop
   );
   float q = front / reach;
 
-  vec2 np = vec2(px * 2.3, py * 1.25 - t * 1.85) * detail;
+  vec2 np = vec2(px * 2.3, py * 1.25 - (uRiseTime + uSeed * 37.0) * 1.85) * detail;
   np = turbulence(np);
   float n = fbm(np);
 
@@ -581,6 +594,8 @@ export function createFlameWrap(
   }
 
   let time = 0;
+  // Intégré à part pour que changer `rise` en direct ne fasse pas sauter les flammes
+  let riseTime = 0;
 
   function render() {
     uploadContent();
@@ -618,6 +633,9 @@ export function createFlameWrap(
     gl!.uniform1f(uniforms.uSparkDensity, Math.max(config.sparkDensity, 0.3));
     gl!.uniform1f(uniforms.uSparkSpeed, Math.max(config.sparkSpeed, 0.05));
     gl!.uniform1f(uniforms.uRim, Math.max(config.rim, 0));
+    gl!.uniform1f(uniforms.uRiseTime, riseTime);
+    gl!.uniform1f(uniforms.uSeed, config.seed ?? 0);
+    gl!.uniform1f(uniforms.uGrow, Math.min(Math.max(config.grow ?? 1, 0.05), 1));
     gl!.uniform1f(uniforms.uMelt, Math.max(config.melt, 0) * dpr);
     gl!.uniform1f(uniforms.uDistortion, Math.max(config.distortion, 0) * dpr);
     gl!.uniform1f(uniforms.uSmoke, Math.max(config.smoke, 0));
@@ -646,7 +664,10 @@ export function createFlameWrap(
     }
     const delta = Math.min((now - lastTime) / 1000, 1 / 30);
     lastTime = now;
-    if (!reducedMotion) time += delta * config.speed;
+    if (!reducedMotion) {
+      time += delta * config.speed;
+      riseTime += delta * config.speed * (config.rise ?? 1);
+    }
     render();
     if (reducedMotion && !contentDirty) {
       running = false;

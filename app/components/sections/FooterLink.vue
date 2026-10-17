@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { ref, computed } from "vue"
+import { ref, computed, watch, onBeforeUnmount } from "vue"
 import FlameWrap from "@/components/canvasui/FlameWrap.vue"
 import type { SocialLink } from "@/config/site"
 
-defineProps<{
+const props = defineProps<{
   link: SocialLink
 }>()
+
+// Graine différente par lien (dérivée du label) pour que les flammes ne soient pas identiques
+const seed = computed(() =>
+  [...props.link.label].reduce((acc, c) => (acc * 31 + c.charCodeAt(0)) % 997, 7) / 10
+)
+// Vitesse de montée des flammes, plus rapide au survol
+const rise = computed(() => (hovered.value ? 4 : 2))
 
 const hovered = ref(false)
 
@@ -13,6 +20,30 @@ const intensity = computed(() => (hovered.value ? 0.9 : 0.12))
 const sparks = computed(() => (hovered.value ? 2 : 0.3))
 const ember = computed(() => (hovered.value ? 3 : 0.5))
 const rim = computed(() => (hovered.value ? 3.5 : 1))
+
+// Hauteur des flammes animée au survol (transition douce plutôt qu'un saut).
+// On anime `grow` et pas `height` : changer `height` redimensionne le canvas à chaque frame -> scintillement
+const FLAME_IDLE = 90
+const FLAME_HOVER = 170
+const flameHeight = ref(FLAME_IDLE)
+const flameGrow = computed(() => flameHeight.value / FLAME_HOVER)
+let raf = 0
+
+watch(hovered, (h) => {
+  const target = h ? FLAME_HOVER : FLAME_IDLE
+  cancelAnimationFrame(raf)
+  const step = () => {
+    flameHeight.value += (target - flameHeight.value) * 0.18
+    if (Math.abs(target - flameHeight.value) < 0.5) {
+      flameHeight.value = target
+      return
+    }
+    raf = requestAnimationFrame(step)
+  }
+  step()
+})
+
+onBeforeUnmount(() => cancelAnimationFrame(raf))
 </script>
 
 <template>
@@ -27,10 +58,13 @@ const rim = computed(() => (hovered.value ? 3.5 : 1))
     <FlameWrap
       style="border-radius: 0.375rem; display: block"
       :intensity="0.3"
-      :height="100"
+      :height="FLAME_HOVER"
+      :grow="flameGrow"
+      :rise="rise"
+      :seed="seed"
       :spread="8"
       :radius="20"
-      :speed="0.25"
+      :speed="0.1"
       :scale="0.75"
       :turbulence="0"
       :turbulenceScale="0.5"
