@@ -9,7 +9,8 @@ const DiscordIcon = () => h(BrandIcons, { name: "discord" })
 
 export const DISCORD_ID = "784483333149163540"
 export const GITHUB_USERNAME = "Doume-20"
-export const SUBDOMAIN = "www"
+export const GITHUB_ORG = "NowYouKnow-nYk"
+export const SUBDOMAIN = "20"
 export const DOMAIN = "doume.be"
 export const EMAIL = `20@${DOMAIN}`
 
@@ -75,7 +76,7 @@ export const BIOGRAPHY: Biography = [
   texte: [
     { titre: "IDE", items: [
       { icon: "logos:visual-studio-code", nom: "VSCode", hl: "Utilisé actuellement" },
-      { icon: "logos:neovim", nom: "Neovim", hl: "Utilisé avec NV Chad" },
+      { icon: "devicon:neovim", nom: "Neovim", hl: "Utilisé avec NV Chad" },
       { icon: "logos:pycharm", nom: "Pycharm", hl: "Utilisé pendant 30j seulement" },
     ]},
     { titre: "Langages", items: [
@@ -96,7 +97,7 @@ export const BIOGRAPHY: Biography = [
       { icon: "logos:archlinux", nom: "Arch", hl: "I use Arch btw" },
       { icon: "logos:microsoft-windows-icon", nom: "Windows", hl: "MicroSlop ?" },
       { icon: "logos:android-icon", nom: "Android", hl: "Utilisé avant" },
-      { icon: "local:eos", nom: "e/OS", hl: "A été flashé sur mon tel en août, donc récent" },
+      { icon: "simple-icons:e", nom: "e/OS", hl: "A été flashé sur mon tel en août, donc récent" },
       { icon: "logos:ubuntu", nom: "Ubuntu", hl: "Trash (mon opinion)" },
       { icon: "simple-icons:kalilinux", nom: "Kali", hl: "Trop d'outils dessus, mais bien en daily" },
     ]},
@@ -117,13 +118,5 @@ export const BIOGRAPHY: Biography = [
 export const FEATURED_REPOS: string[] = [
   `${GITHUB_USERNAME}/${SUBDOMAIN}.${DOMAIN}`,
   `${GITHUB_USERNAME}/${DOMAIN}`,
-  `${GITHUB_USERNAME}/RIDF`,
+  `${GITHUB_ORG}/ykw.doume.be`,
 ] 
-/* 
-    !   Il n'est pas recommandé d'avoir cet array vide ou d'avoir plus de 3 repos non plus
-    !   pour un meilleur layout, 3 est le max (recommandé)
-    !   mais si vous voulez en avoir plus, 6 est vraiment le max (visible) 
-    !   parce que la page ne permet pas ce scroller, ce qui bloque la possibilité de voir plus de repos
-
-    TODO: Régler le problème
-*/

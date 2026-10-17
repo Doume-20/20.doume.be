@@ -96,7 +96,7 @@ useSeoMeta({
           <div
             v-for="(group, g) in BIOGRAPHY[i].texte"
             :key="g"
-            class="flex flex-row-reverse items-start gap-x-3 md:gap-x-4"
+            class="flex flex-row items-start gap-x-3 md:gap-x-4"
           >
             <span
               v-if="group.titre"
@@ -105,17 +105,22 @@ useSeoMeta({
             >
               {{ group.titre }}
             </span>
-            <div
-              v-for="(skill, j) in group.items"
-              :key="j"
-              class="flex flex-col items-center gap-y-2"
-            >
-              <img
-                :src="`/icons/${skill.image}.svg`"
-                :alt="skill.image"
-                :title="skill.hl"
-                class="w-6 h-6 md:w-8 md:h-8"
-              />
+            <div class="flex flex-col items-center gap-y-3 md:gap-y-4">
+              <template v-for="(skill, j) in group.items" :key="j">
+                <Icon
+                  v-if="typeof skill.icon === 'string'"
+                  :name="skill.icon"
+                  :title="skill.hl"
+                  :aria-label="skill.nom"
+                  class="w-14 h-14 md:w-20 md:h-20"
+                />
+                <component
+                  :is="skill.icon"
+                  v-else-if="skill.icon"
+                  :title="skill.hl"
+                  class="w-14 h-14 md:w-20 md:h-20"
+                />
+              </template>
             </div>
           </div>
         </div>

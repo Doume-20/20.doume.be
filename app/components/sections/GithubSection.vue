@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import { GitCommitHorizontal, FolderGit2, Clock } from "@lucide/vue"
-import DecryptReveal from "@/components/canvasui/DecryptReveal.vue"
+// import DecryptReveal from "@/components/canvasui/DecryptReveal.vue"
+import FlameWrap from "@/components/canvasui/FlameWrap.vue"
 import StreakStatsBar from "@/components/sections/StreakStatsBar.vue"
 import RepoCard from "@/components/sections/RepoCard.vue"
 import AddRepoInput from "@/components/sections/AddRepoInput.vue"
@@ -60,11 +61,11 @@ function formatDate(d: string | null) {
 </script>
 
 <template>
-  <section id="github" class="relative w-full bg-black">
+  <section id="github" class="relative w-full h-full bg-black">
     <Background />
-    <div class="relative z-10 w-full flex flex-col gap-16 py-10 px-6 md:px-16">
-      <div class="max-w-4xl mx-auto w-full">
-        <DecryptReveal
+    <div class="relative z-10 w-full h-full flex flex-col gap-16 py-10 px-6 md:px-16">
+      <div class="max-w-4xl mx-auto w-full shrink-0">
+        <!-- <DecryptReveal
           style="width: 100%; min-height: 330px; border-radius: 1rem; overflow: hidden"
           :radius="350"
           :softness="0.5"
@@ -88,7 +89,7 @@ function formatDate(d: string | null) {
           :threshold="0.025"
           background="#000000"
           :smoothing="0.2"
-        >
+        > -->
           
           <div
             class="w-full min-h-80 flex flex-col items-center justify-center gap-6 p-8 bg-black/30"
@@ -165,7 +166,7 @@ function formatDate(d: string | null) {
               </div>
             </div>
           </div>
-        </DecryptReveal>
+        <!-- </DecryptReveal> -->
 
         <div class="mt-6">
           <StreakStatsBar
@@ -177,7 +178,8 @@ function formatDate(d: string | null) {
         </div>
       </div>
 
-      <div class="max-w-5xl mx-auto w-full">
+      <!-- Prend la place restante ; la grille scrolle si les repos ne rentrent pas -->
+      <div class="max-w-5xl mx-auto w-full flex-1 min-h-64 flex flex-col">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <h3 class="text-2xl font-semibold text-white">Projets</h3>
           <AddRepoInput @add="loadRepo" />
@@ -188,7 +190,7 @@ function formatDate(d: string | null) {
         </p>
 
         <p v-if="reposLoading" class="text-white/40 text-sm">Chargement des repos...</p>
-        <div v-else-if="repos.length" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div v-else-if="repos.length" class="min-h-0 overflow-y-auto p-1 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <RepoCard v-for="repo in repos" :key="repo.fullName" :repo="repo" />
         </div>
         <p v-else class="text-white/40 text-sm">Aucun repo pour le moment.</p>
