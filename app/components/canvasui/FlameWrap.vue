@@ -247,7 +247,10 @@ void main () {
   float biteSB = 3.0 + meltPx * (0.25 + 0.75 * perim);
   float frontSB = d0 + biteSB;
 
-  float wTop = S(-0.62 * unit, -0.1 * unit, rel.y - uRectHalf.y)
+  // Zone de transition du bord haut, limitée à la hauteur de l'élément :
+  // sinon, sur un élément plus bas que ~0.62 * height, elle atteint le bord bas et le déforme en V
+  float topZone = max(min(0.62 * unit, 1.6 * uRectHalf.y), 0.1 * unit + 1.0);
+  float wTop = S(-topZone, -0.1 * unit, rel.y - uRectHalf.y)
     * S(10.0, -30.0, abs(rel.x) - (uRectHalf.x - corner));
   float front = mix(frontSB, frontTop, wTop);
 
