@@ -65,73 +65,51 @@ function formatDate(d: string | null) {
     <Background />
     <div class="relative z-10 w-full h-full flex flex-col gap-16 py-10 px-6 md:px-16">
       <div class="max-w-4xl mx-auto w-full shrink-0">
-        <!-- <DecryptReveal
-          style="width: 100%; min-height: 330px; border-radius: 1rem; overflow: hidden"
-          :radius="350"
-          :softness="0.5"
-          :cell="10"
-          :aspect="0.75"
-          :charset="DECRYPT_CHARSET"
-          :colored="1"
-          color="#fb923c"
-          :brightness="1"
-          :legibility="1"
-          :contrast="1"
-          :exposure="1"
-          :scramble="0.1"
-          :scramble-speed="6"
-          :edge-width="0.2"
-          :edge-flicker="1"
-          :edge-glow="2"
-          :edge-tint="0.75"
-          :aberration="10"
-          :passthrough="0.15"
-          :threshold="0.025"
-          background="#000000"
-          :smoothing="0.2"
-        > -->
-          
           <div
             class="w-full min-h-80 flex flex-col items-center justify-center gap-6 p-8 bg-black/30"
           >
-            <FlameWrap
-              style="border-radius: 0.375rem; display: block"
-              :intensity="0.6"
-              :height="100"
-              :spread="8"
-              :radius="40"
-              :speed="0.25"
-              :scale="0.75"
-              :turbulence="0"
-              :turbulenceScale="0.5"
-              :turbulenceReach="25"
-              :sparks="1.5"
-              :sparkSize="0.20"
-              :sparkDensity="1"
-              :sparkSpeed="1"
-              :rim="2.5"
-              :melt="1"
-              :distortion="0"
-              :smoke="0"
-              :ember="2"
-              :scorch="0"
-              :color="[1, 0.5059, 0]"
-            >
-              <img
-                v-if="stats?.avatarUrl"
-                :src="stats.avatarUrl"
-                :alt="stats.login"
-                class="size-20 rounded-full border-2 border-orange-400/40"
-              />
-            </FlameWrap>
-            <div class="text-center">
-              <h2 class="text-2xl md:text-3xl font-bold text-white">
-                @{{ stats?.login ?? GITHUB_USERNAME }}
-              </h2>
-              <p v-if="stats?.name" class="text-white/50 text-sm mt-1">
-                {{ stats.name }}
-              </p>
-            </div>
+            <a :href="`https://github.com/${GITHUB_USERNAME}`">
+              <FlameWrap
+                style="border-radius: 0.375rem; display: block"
+                :intensity="0.6"
+                :height="100"
+                :spread="8"
+                :radius="40"
+                :speed="0.25"
+                :scale="0.75"
+                :turbulence="0"
+                :turbulenceScale="0.5"
+                :turbulenceReach="25"
+                :sparks="1.5"
+                :sparkSize="0.20"
+                :sparkDensity="1"
+                :sparkSpeed="1"
+                :rim="2.5"
+                :melt="1"
+                :distortion="0"
+                :smoke="0"
+                :ember="2"
+                :scorch="0"
+                :color="[1, 0.5059, 0]"
+              >
+                <img
+                  v-if="stats?.avatarUrl"
+                  :src="stats.avatarUrl"
+                  :alt="stats.login"
+                  class="size-20 rounded-full border-2 border-orange-400/40"
+                />
+              </FlameWrap>
+            </a>
+            <a :href="`https://github.com/${GITHUB_USERNAME}`">
+              <div class="text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-white">
+                  @{{ stats?.login ?? GITHUB_USERNAME }}
+                </h2>
+                <p v-if="stats?.name" class="text-white/50 text-sm mt-1">
+                  {{ stats.name }}
+                </p>
+              </div>
+            </a>
 
             <div
               v-if="!pending"
@@ -166,7 +144,6 @@ function formatDate(d: string | null) {
               </div>
             </div>
           </div>
-        <!-- </DecryptReveal> -->
 
         <div class="mt-6">
           <StreakStatsBar
