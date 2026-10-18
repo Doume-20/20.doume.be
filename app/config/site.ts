@@ -35,7 +35,7 @@ export interface SocialLink {
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: "GitHub",
-    href: `https://github.com/${GITHUB_USERNAME}/${SUBDOMAIN}.${DOMAIN}`,
+    href: `https://github.com/${GITHUB_USERNAME}/`,
     icon: GithubIcon,
   },
   {
@@ -106,11 +106,12 @@ export const BIOGRAPHY: Biography = [
   {
     type: "devices",
     texte: [
-      { nom: "Lenovo ThinkPad x13 gen4", description: "Ordinateur que j'utilise au quotidien" },
-      { nom: "FairPhone Gen. 6", description: "Mon téléphone principal, dont je suis fier (FairPhone est très bien je trouve, en tout cas, pour mon usage)" },
-      { nom: "Unowhy Gen2 2025", description: "Ordinateur donné par la RIDF lors de mon année de seconde (2025)" },
-      { nom: "Asus Chromebook", description: "Ordinateur des secondes de 2026, qui est complètement bloqué de partout" },
-      { nom: "Packard Bell Nav50", description: "Petit ordi sous win7, eu pour 5€ à une brocante xD" },
+      { nom: "Lenovo ThinkPad x13 gen4 (CachyOS)", description: "Ordinateur que j'utilise au quotidien" },
+      { nom: "FairPhone Gen. 6 (/e/OS rooté)", description: "Mon téléphone principal, dont je suis fier (FairPhone est très bien je trouve, en tout cas, pour mon usage)" },
+      { nom: "Unowhy Gen2 2025 (Arch linux)", description: "Ordinateur donné par la RIDF lors de mon année de seconde (2025)" },
+      { nom: "Asus Chromebook (ChromeOS)", description: "Ordinateur des secondes de 2026, qui est complètement bloqué de partout" },
+      { nom: "Packard Bell Nav50 (Windows 7)", description: "Petit ordi sous win7, eu pour 5€ à une brocante xD" },
+      { nom: "Samsung Galaxy Tab a7 (Andoid)", description: "Tablette trouvé dans ma déchetterie, tout fonctionne sauf l'usb-C qui est capricieux" },
     ],
   },
 ]

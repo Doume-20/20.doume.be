@@ -88,7 +88,7 @@ useSeoMeta({
           </p>
         </div>
 
-        <!--! Problème à régler, à un moment... -->
+        <!-- TODO: Régler le problème de taille d'icone qui est trop petite par rapport à la page -->
         <div
           v-else-if="BIOGRAPHY[i].type === 'skills-vertical'"
           class="w-full h-full flex flex-row-reverse flex-wrap items-stretch justify-around gap-x-6 md:gap-x-10 py-16 pointer-events-none"
@@ -101,7 +101,7 @@ useSeoMeta({
             <span
               v-if="group.titre"
               class="font-mono font-bold text-xl md:text-3xl tracking-[0.3em] leading-relaxed"
-              style="writing-mode: vertical-rl; text-orientation: mixed;"
+              style="writing-mode: sideways-lr; text-orientation: mixed;"
             >
               {{ group.titre }}
             </span>
@@ -112,13 +112,13 @@ useSeoMeta({
                   :name="skill.icon"
                   :title="skill.hl"
                   :aria-label="skill.nom"
-                  class="w-14 h-14 md:w-20 md:h-20"
+                  class="w-30 h-30 md:w-40 md:h-40"
                 />
                 <component
                   :is="skill.icon"
                   v-else-if="skill.icon"
                   :title="skill.hl"
-                  class="w-14 h-14 md:w-20 md:h-20"
+                  class="w-20 h-20 md:w-30 md:h-30"
                 />
               </template>
             </div>
@@ -136,6 +136,8 @@ useSeoMeta({
             >
               {{ group.titre }}
             </p>
+            <!--! Problème actuellement avec les icones -->
+            <!-- TODO: Régler le problème... encore un autre... j'adore coder ! (aidez moi) (blague) -->
             <div class="flex flex-wrap gap-2 md:gap-3">
               <span
                 v-for="(skill, j) in group.items"
@@ -192,7 +194,7 @@ useSeoMeta({
       <div v-if="sections.length === 3 || sections.length === 2">
         <button v-if="activeIndex === 0" @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section">↧</button>
         <button v-if="activeIndex === 1" @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section" :disabled="sections.length === (activeIndex +1)" :class="sections.length === (activeIndex +1) ? 'text-white/20 cursor-not-allowed' : 'text-white/60 hover:text-white'">⤈</button>
-        <button v-if="activeIndex === 2 && sections.length === 3" @click="next" class="mt-4 hover:text-white text-white/20 cursor-not-allowed" aria-label="Next section" :disabled="true">⤓</button>
+        <button v-if="activeIndex === 2 && sections.length === 3" @click="next" class="mt-4 hover:text-white text-white/60 cursor-not-allowed" aria-label="Next section" :disabled="true">⤓</button>
       </div>
       <div v-else>
         <button @click="next" class="mt-4 text-white/60 hover:text-white" aria-label="Next section" :disabled="sections.length === (activeIndex +1)" :class="sections.length === (activeIndex +1) ? 'text-white/20 cursor-not-allowed' : 'text-white/60 hover:text-white'">↓</button>

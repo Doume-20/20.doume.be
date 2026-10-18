@@ -7,11 +7,10 @@ const props = defineProps<{
   link: SocialLink
 }>()
 
-// Graine différente par lien (dérivée du label) pour que les flammes ne soient pas identiques
 const seed = computed(() =>
   [...props.link.label].reduce((acc, c) => (acc * 31 + c.charCodeAt(0)) % 997, 7) / 10
 )
-// Vitesse de montée des flammes, plus rapide au survol
+
 const rise = computed(() => (hovered.value ? 4 : 2))
 
 const hovered = ref(false)
@@ -21,8 +20,6 @@ const sparks = computed(() => (hovered.value ? 2 : 0.3))
 const ember = computed(() => (hovered.value ? 3 : 0.5))
 const rim = computed(() => (hovered.value ? 3.5 : 1))
 
-// Hauteur des flammes animée au survol (transition douce plutôt qu'un saut).
-// On anime `grow` et pas `height` : changer `height` redimensionne le canvas à chaque frame -> scintillement
 const FLAME_IDLE = 90
 const FLAME_HOVER = 170
 const flameHeight = ref(FLAME_IDLE)
