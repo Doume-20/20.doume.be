@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import HeroSection from "@/components/sections/HeroSection.vue"
+import { FULL_DOMAIN, INDEX_DESC } from "@/config/site"
 
 useSeoMeta({
   title: "Accueil",
   description: "Doume20 — étudiant, passionné de reverse engineering, cybersécurité, programmation et électronique.",
   ogTitle: "Doume20's homepage",
-  ogDescription: "'jour",
+  ogDescription: INDEX_DESC,
   ogType: "website",
-  ogImage: 'https://www.doume.be/favicon.ico',
+  ogImage: `${FULL_DOMAIN}/favicon.ico`,
 
   twitterTitle: "Accueil",
-  twitterImage: "https://www.doume.be/favicon.ico",
+  twitterImage: `${FULL_DOMAIN}/favicon.ico`,
 })
 </script>
 

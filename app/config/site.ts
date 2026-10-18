@@ -13,6 +13,11 @@ export const GITHUB_ORG = "NowYouKnow-nYk"
 export const SUBDOMAIN = "20"
 export const DOMAIN = "doume.be"
 export const EMAIL = `20@${DOMAIN}`
+export const FULL_DOMAIN = `https://${SUBDOMAIN}.${DOMAIN}`
+
+export const INDEX_DESC   = `Portfolio de ${GITHUB_USERNAME}`
+export const ME_DESC      = `À propos de moi`
+export const GITHUB_DESC  = `Github de ${GITHUB_USERNAME}`
 
 export interface NavSection {
   path: string
