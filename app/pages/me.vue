@@ -10,7 +10,7 @@ useSeoMeta({
   ogDescription: ME_DESC,
   ogType: "profile",
 
-  twitterTitle: "Github",
+  twitterTitle: "À propos de moi",
   twitterImage: `${FULL_DOMAIN}/favicon.ico`,
 })
 </script>
