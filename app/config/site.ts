@@ -74,7 +74,11 @@ export type Biography = BiographyEntry[]
 export const BIOGRAPHY: Biography = [
   {
     type: "presentation",
-    texte: ["'jour, je suis un élève de première au lycée Louis Bascan.", "J'ai pas d'idées d'autres trucs à rajouter, donc pour l'instant, ce sera vide", ],
+    texte: [
+      "'jour, je suis un élève de première au lycée Louis Bascan. J'ai choisi comme spé STI2D, mais hors de l'ingénerie, j'aime faire des CTFs comme HackTonLycée, Root-Me, PortSwigger, etc...",
+      "Pour HackTonLycée, j'ai finit l'édition de 2025 en 53ème place (dégouté car il fallait être dans le top 50 pour l'épreuve suivante) et pour 2026, je suis actuellement 2ème (il n'est pas encore finit)", 
+      "J'ai pas d'idées d'autres trucs à rajouter, donc pour l'instant, ce sera vide", 
+    ],
   },
   {
   type: "skills-vertical",
