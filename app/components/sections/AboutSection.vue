@@ -105,6 +105,8 @@ useSeoMeta({
             >
               {{ group.titre }}
             </span>
+
+            <!-- TODO: RAjouter le hoverlay de skill.hl-->
             <div class="flex flex-col items-center gap-y-3 md:gap-y-4">
               <template v-for="(skill, j) in group.items" :key="j">
                 <Icon
@@ -115,9 +117,8 @@ useSeoMeta({
                   class="w-30 h-30 md:w-40 md:h-40"
                 />
                 <component
-                  :is="skill.icon"
                   v-else-if="skill.icon"
-                  :title="skill.hl"
+                  :is="skill.icon"
                   class="w-20 h-20 md:w-30 md:h-30"
                 />
               </template>
